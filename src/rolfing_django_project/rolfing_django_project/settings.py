@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cities_light',
     'web_app.apps.WebAppConfig',
 ]
 
@@ -122,3 +123,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CITIES_LIGHT_APP_NAME = 'cities_light'
+# CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en']
+# COUNTRIES_COUNTRY_MODEL = 'cities_light.Country'
+# COUNTRIES_CITY_MODEL = 'cities_light.City'
+# CITIES_LIGHT_INCLUDE_COUNTRIES = ['RU', ]
