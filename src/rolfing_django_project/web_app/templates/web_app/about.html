@@ -1,5 +1,12 @@
 {% extends "web_app/base.html" %}
 {% load static  %}
+
+{% block navbar %}
+    {% with about_is_active="active" %}
+        {{ block.super }}
+    {% endwith%}
+{% endblock navbar%}
+
 {% block content %}
 <img src="{% static 'img/rolfing_logo_sitdikova.svg' %}">
 <div class="container marketing">
