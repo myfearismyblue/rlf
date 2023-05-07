@@ -11,7 +11,6 @@
 <img src="{% static 'img/rolfing_logo_sitdikova.svg' %}">
 <div class="container marketing">
         <!-- START THE FEATURETTES -->
-
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -27,20 +26,16 @@
                     </tr>
                   </thead>
                   <tbody>
+                  {% for event in events %}
                     <tr>
-                      <th scope="row">1</th>
-                      <td colspan="1">Novosibirsk</td>
-                      <td>Фасция, Гравитация и Психика - Модуль 4</td>
-                      <td>Gulnora Sitdikova</td>
-                      <td>Dec. 23, 2023 - Dec. 24, 2023</td>
+                      <th scope="row">{{ event.id }}</th>
+                      <td colspan="1">{{ event.city.name }}</td>
+                      <td>{% for topic in event.topic_modules.all %} {{ topic }} {% endfor %}</td>
+                      <td>{% for teachers in event.teachers.all %} {{ teachers }} {% endfor %}</td>
+                      <td></td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td colspan="1">Kirov</td>
-                      <td>Фасция, Гравитация и Психика - Модуль 2</td>
-                      <td>Gulnora Sitdikova</td>
-                      <td>Dec. 16, 2023 - Dec. 19, 2023</td>
-                    </tr>
+                  {% endfor %}
+
                   </tbody>
                 </table>
           </div>
