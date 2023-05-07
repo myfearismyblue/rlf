@@ -1,0 +1,51 @@
+{% extends "web_app/base.html" %}
+{% load static  %}
+
+{% block navbar %}
+    {% with overview_is_active="active" %}
+        {{ block.super }}
+    {% endwith%}
+{% endblock navbar%}
+
+{% block content %}
+<img src="{% static 'img/rolfing_logo_sitdikova.svg' %}">
+<div class="container marketing">
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-12">
+               <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">City</th>
+                      <th scope="col">Event</th>
+                      <th scope="col">Teacher</th>
+                      <th scope="col">Dates</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td colspan="1">Novosibirsk</td>
+                      <td>Фасция, Гравитация и Психика - Модуль 4</td>
+                      <td>Gulnora Sitdikova</td>
+                      <td>Dec. 23, 2023 - Dec. 24, 2023</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td colspan="1">Kirov</td>
+                      <td>Фасция, Гравитация и Психика - Модуль 2</td>
+                      <td>Gulnora Sitdikova</td>
+                      <td>Dec. 16, 2023 - Dec. 19, 2023</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+
+
+    </div>
+{% endblock %}
