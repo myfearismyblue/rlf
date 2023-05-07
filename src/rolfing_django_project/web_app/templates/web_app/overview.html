@@ -1,5 +1,6 @@
 {% extends "web_app/base.html" %}
 {% load static  %}
+{% load date_period %}
 
 {% block navbar %}
     {% with overview_is_active="active" %}
@@ -28,11 +29,11 @@
                   <tbody>
                   {% for event in events %}
                     <tr>
-                      <th scope="row">{{ event.id }}</th>
+                      <th scope="row" >{{ event.id }}</th>
                       <td colspan="1">{{ event.city.name }}</td>
                       <td>{% for topic in event.topic_modules.all %} {{ topic }} {% endfor %}</td>
-                      <td>{% for teachers in event.teachers.all %} {{ teachers }} {% endfor %}</td>
-                      <td></td>
+                      <td>{% for teacher in event.teachers.all %} {{ teacher }} <br> {% endfor %}</td>
+                      <td>{% date_period event %}</td>
                     </tr>
                   {% endfor %}
 
