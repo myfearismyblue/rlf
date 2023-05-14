@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -75,10 +79,17 @@ WSGI_APPLICATION = 'rolfing_django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('ROLF_DB_ENGINE'),
+        'NAME': os.getenv('ROLF_DB_NAME'),
+        'HOST': os.getenv('ROLF_DB_HOST'),
+        'USER': os.getenv('ROLF_DB_USER'),
+        'PASSWORD': os.getenv('ROLF_DB_PASSWORD'),
+        'PORT': os.getenv('ROLF_DB_PORT'),
     }
 }
 
