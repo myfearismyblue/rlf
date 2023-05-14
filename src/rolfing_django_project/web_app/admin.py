@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import TeacherModel, TopicModel, Topic_Module, EventModel
+from .models import TeacherModel, TopicModel, Topic_Module, EventModel, RegionalAssociationModel
 
 
 @admin.register(TeacherModel)
@@ -22,3 +22,7 @@ class Topic_ModuleAdmin(admin.ModelAdmin):
 class EventModelAdmin(admin.ModelAdmin):
     ordering = ['start_date', ]
 
+
+@admin.register(RegionalAssociationModel)
+class RegionalAssociationModelAdmin(admin.ModelAdmin):
+    ordering = ['name', ]
