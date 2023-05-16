@@ -21,9 +21,17 @@ section {
 	padding: 50px 0;
 }
 
-a:hover {
-	color: var(--color-primary-orange);
+.association_title{
+    text-decoration: none;
 }
+
+
+.association_title:hover, a:hover {
+	color: var(--color-primary-orange);
+	text-decoration: none;
+}
+
+
 
 .navbar{
 	padding-top: 5px;
@@ -82,6 +90,23 @@ a:hover {
 }
 
 .top-menu li a:hover::after {
+	transform: scale(1);
+}
+
+
+.association_title::after {
+	content: '';
+	display: block;
+	widows: 100%;
+	background-color: var(--color-primary-orange);
+	height: 1px;
+	transition: all .4s;
+	transform: scale(0);
+	transform-origin: 0 0;
+	text-decoration: none;
+}
+
+.association_title:hover::after {
 	transform: scale(1);
 }
 

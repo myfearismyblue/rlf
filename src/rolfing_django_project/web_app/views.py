@@ -10,7 +10,7 @@ def index(request):
 
 
 def overview(request):
-    events = EventModel.objects.all()
+    events = EventModel.objects.all().order_by('start_date')
     context = {'events': events,
                }
     return render(request, template_name='web_app/overview.html', context=context)

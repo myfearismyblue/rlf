@@ -21,6 +21,7 @@ class Topic_ModuleAdmin(admin.ModelAdmin):
 @admin.register(EventModel)
 class EventModelAdmin(admin.ModelAdmin):
     ordering = ['start_date', ]
+    list_display = ['id', '__str__', ]
 
 
 @admin.register(RegionalAssociationModel)
