@@ -1,12 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, re_path
 
-from .views import index, overview, associations
+from .views import index, overview, associations, concrete_association
 
 urlpatterns = [
     re_path(r'overview[/]?', overview, name='overview'),
-    re_path(r'about', index, name='about'),
-    re_path(r'associations', associations, name='associations'),
-    re_path(r'^\w*[/]?', index, name='index'),
+    re_path(r'about[/]?', index, name='about'),
+    path(r'associations/<slug:association_slug>', concrete_association, name='concrete_association'),
+    re_path(r'associations[/]?$', associations, name='associations'),
+    re_path(r'', index, name='index'),
 ]
 

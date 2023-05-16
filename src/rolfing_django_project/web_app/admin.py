@@ -25,4 +25,6 @@ class EventModelAdmin(admin.ModelAdmin):
 
 @admin.register(RegionalAssociationModel)
 class RegionalAssociationModelAdmin(admin.ModelAdmin):
+    list_display = ['name', 'person', ]
     ordering = ['name', ]
+    exclude = ['slug', ]
