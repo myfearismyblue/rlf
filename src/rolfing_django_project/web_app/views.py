@@ -3,14 +3,17 @@ import os
 from django.shortcuts import render
 
 from .models import EventModel, RegionalAssociationModel
+from .utils import get_order_key_by_token
 
 
 def index(request):
     return render(request, template_name='web_app/about.html')
 
 
-def overview(request):
-    events = EventModel.objects.all().order_by('start_date')
+def overview(request, order_token: str = 'order_by_date'):
+    events_unsorted = EventModel.objects.all()
+    order_key = get_order_key_by_token(order_token)
+    events = events_unsorted.order_by(order_key) if order_key else events_unsorted
     context = {'events': events,
                }
     return render(request, template_name='web_app/overview.html', context=context)
