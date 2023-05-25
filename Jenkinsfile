@@ -5,6 +5,9 @@ pipeline {
     agent {
         label 'built-in'
         }
+    enviroment {
+    BEGET_USER=credentials('BEGET_USER')
+    }
     triggers {
         pollSCM('* * * * *')
         }
