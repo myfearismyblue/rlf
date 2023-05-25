@@ -11,11 +11,13 @@ class TeacherModelAdmin(admin.ModelAdmin):
 @admin.register(TopicModel)
 class TopicModelAdmin(admin.ModelAdmin):
     ordering = ['name', ]
+    list_display = ['id', '__str__', ]
 
 
 @admin.register(Topic_Module)
 class Topic_ModuleAdmin(admin.ModelAdmin):
      ordering = ['topic', 'module', ]
+     list_display = ['id', '__str__', ]
 
 
 @admin.register(EventModel)
@@ -26,6 +28,6 @@ class EventModelAdmin(admin.ModelAdmin):
 
 @admin.register(RegionalAssociationModel)
 class RegionalAssociationModelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'person', ]
+    list_display = ['id', 'name', 'person', ]
     ordering = ['name', ]
     exclude = ['slug', ]

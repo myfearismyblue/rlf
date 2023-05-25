@@ -13,7 +13,7 @@ def index(request):
 def overview(request, order_token: str = 'order_by_date'):
     events_unsorted = EventModel.objects.all()
     order_key = get_order_key_by_token(order_token)
-    events = events_unsorted.order_by(order_key) if order_key else events_unsorted
+    events = events_unsorted.order_by(order_key, 'start_date') if order_key else events_unsorted
     context = {'events': events,
                }
     return render(request, template_name='web_app/overview.html', context=context)
