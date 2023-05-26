@@ -1,7 +1,8 @@
 import os
 
+from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView
 
@@ -50,3 +51,8 @@ class LoginUser(LoginView):
 
     def get_success_url(self):
         return reverse('index')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect(reverse('login'))
