@@ -2,7 +2,10 @@ import os
 
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
+from django.urls import reverse
+from django.views.generic import CreateView
 
+from .forms import LoginUserForm
 from .models import EventModel, RegionalAssociationModel
 from .utils import get_order_key_by_token
 
@@ -37,7 +40,13 @@ def concrete_association(request, association_slug):
     return render(request, template_name='web_app/concrete_association.html', context=context)
 
 
+class RegisterUser(CreateView):
+    pass
+
+
 class LoginUser(LoginView):
     template_name = 'web_app/login.html'
+    form_class = LoginUserForm
 
-# Create your views here.
+    def get_success_url(self):
+        return reverse('index')
