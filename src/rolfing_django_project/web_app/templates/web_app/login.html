@@ -1,0 +1,12 @@
+{% extends "web_app/base.html" %}
+{% load static  %}
+
+{% block navbar %}
+    {% with about_is_active="active" %}
+        {{ block.super }}
+    {% endwith%}
+{% endblock navbar%}
+
+{% block content %}
+Login template
+{% endblock %}

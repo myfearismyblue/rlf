@@ -1,5 +1,6 @@
 import os
 
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 
 from .models import EventModel, RegionalAssociationModel
@@ -34,5 +35,9 @@ def concrete_association(request, association_slug):
         'YANDEX_MAP_API_KEY': os.getenv('YANDEX_MAP_API_KEY'),
     }
     return render(request, template_name='web_app/concrete_association.html', context=context)
+
+
+class LoginUser(LoginView):
+    template_name = 'web_app/login.html'
 
 # Create your views here.
