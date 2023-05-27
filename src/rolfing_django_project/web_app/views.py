@@ -3,10 +3,10 @@ import os
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
-from .forms import LoginUserForm
+from .forms import LoginUserForm, RegisterUserForm
 from .models import EventModel, RegionalAssociationModel
 from .utils import get_order_key_by_token
 
@@ -42,7 +42,9 @@ def concrete_association(request, association_slug):
 
 
 class RegisterUser(CreateView):
-    pass
+    form_class = RegisterUserForm
+    template_name = 'web_app/register.html'
+    success_url = reverse_lazy('login')
 
 
 class LoginUser(LoginView):
