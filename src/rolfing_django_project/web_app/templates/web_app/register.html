@@ -1,0 +1,37 @@
+{% extends "web_app/base.html" %}
+{% load static  %}
+
+{% block navbar %}
+    {% with register_is_active="active" %}
+        {{ block.super }}
+    {% endwith%}
+{% endblock navbar%}
+
+{% block content %}
+
+<div class="container px-4 py-5">
+<h2 class="pb-2 border-bottom">Registration</h2>
+<div class="col-md-7 col-lg-8">
+<form class="needs-validation" action="{% url 'register' %}" method="post" novalidate>
+    {% csrf_token %}
+
+    <div class="row g-3 py-3 px-3">
+        <div class="col-sm-6">
+            {% for f in form %}
+            <div class="input-group has-validation">
+                <div class="form-floating mb-3"> {{ f }} <label for="floatingInput">{{ f.label }}</label></div>
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+            {% endfor %}
+            <button class="btn-login btn w-100 btn-outline-primary btn-md my-3" type="submit">Register</button>
+            {% for error in form.non_field_errors %}
+            <div class="alert alert-warning" role="alert">{{error}}</div>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+</div>
+</div>
+{% endblock %}

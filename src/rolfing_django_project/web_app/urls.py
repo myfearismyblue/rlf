@@ -1,8 +1,11 @@
 from django.urls import path, re_path
 
-from .views import index, overview, associations, concrete_association
+from .views import index, overview, associations, concrete_association, LoginUser, logout_user, RegisterUser
 
 urlpatterns = [
+    re_path(r'login[/]?', LoginUser.as_view(), name='login'),
+    re_path(r'logout[/]?', logout_user, name='logout'),
+    re_path(r'register[/]?', RegisterUser.as_view(), name='register'),
     re_path(r'overview[/]?$', overview, name='overview'),
     path(r'overview/<order_token>', overview, name='overview'),
     re_path(r'about[/]?', index, name='about'),
@@ -10,4 +13,3 @@ urlpatterns = [
     re_path(r'associations[/]?$', associations, name='associations'),
     re_path(r'', index, name='index'),
 ]
-
