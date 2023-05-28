@@ -23,6 +23,13 @@ section {
 	padding: 50px 0;
 }
 
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: var(--color-primary-orange);
+}
+
 .association_title{
     text-decoration: none;
 }

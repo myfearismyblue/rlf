@@ -4,6 +4,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from django.utils import timezone
 from django.views.generic import CreateView
 
 from .forms import LoginUserForm, RegisterUserForm
@@ -16,13 +17,20 @@ def index(request):
 
 
 def overview(request, order_token: str = 'order_by_date'):
-    events_unsorted = EventModel.objects.all()
+    events_unsorted = EventModel.objects.filter(end_date__gte=timezone.now())
     order_key = get_order_key_by_token(order_token)
     events = events_unsorted.order_by(order_key, 'start_date') if order_key else events_unsorted
     context = {'events': events,
                }
     return render(request, template_name='web_app/overview.html', context=context)
 
+def archive(request, order_token: str = 'order_by_date'):
+    events_unsorted = EventModel.objects.filter(end_date__lt=timezone.now())
+    order_key = get_order_key_by_token(order_token)
+    events = events_unsorted.order_by(order_key, 'start_date') if order_key else events_unsorted
+    context = {'events': events,
+               }
+    return render(request, template_name='web_app/archive.html', context=context)
 
 def associations(request):
     regional_associations = RegionalAssociationModel.objects.all()
