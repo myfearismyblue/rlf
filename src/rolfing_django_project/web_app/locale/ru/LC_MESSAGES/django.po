@@ -82,7 +82,7 @@ msgstr "Архив событий"
 
 #: .\templates\web_app\archive.html:26
 msgid "Latest"
-msgstr "Последнии"
+msgstr "Последние"
 
 #: .\templates\web_app\archive.html:37 .\templates\web_app\overview.html:37
 msgid "City"
@@ -134,7 +134,7 @@ msgstr "Войти"
 
 #: .\templates\web_app\login.html:24 .\templates\web_app\register.html:25
 msgid "This field is required"
-msgstr "Это полне необходимо заполнить"
+msgstr "Это поле необходимо заполнить"
 
 #: .\templates\web_app\navbar.html:13
 msgid "About me"
