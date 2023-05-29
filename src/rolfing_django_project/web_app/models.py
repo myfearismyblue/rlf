@@ -1,8 +1,11 @@
 from typing import Optional
 
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
+
 
 
 class TeacherModel(models.Model):
@@ -12,8 +15,8 @@ class TeacherModel(models.Model):
     # photo = models.ImageField()     # FIXME: consider URLField here
 
     class Meta:
-        verbose_name = 'Teacher'
-        verbose_name_plural = 'Teachers'
+        verbose_name = _('Teacher')
+        verbose_name_plural = _('Teachers')
 
     def __str__(self):
         return f'{self.first_name} {self.second_name}'
@@ -24,8 +27,8 @@ class TopicModel(models.Model):
     name = models.CharField(max_length=128, null=False, blank=False)
 
     class Meta:
-        verbose_name = 'Topic'
-        verbose_name_plural = 'Topics'
+        verbose_name = _('Topic')
+        verbose_name_plural = _('Topics')
 
     def __str__(self):
         return f'{self.name}'
@@ -53,8 +56,8 @@ class EventModel(models.Model):
     topic_modules = models.ManyToManyField(Topic_Module)
 
     class Meta:
-        verbose_name = 'Event'
-        verbose_name_plural = 'Events'
+        verbose_name = _('Event')
+        verbose_name_plural = _('Events')
 
     def __str__(self):
         return f'{self.city.name}. {self.start_date.strftime("%d %B %Y")} - {self.end_date.strftime("%d %B %Y")}.'
@@ -79,8 +82,8 @@ class RegionalAssociationModel(models.Model):
             super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Regional Association'
-        verbose_name_plural = 'Regional Associations'
+        verbose_name = _('Regional Association')
+        verbose_name_plural = _('Regional Associations')
 
     def __str__(self):
         return f'{self.name}'

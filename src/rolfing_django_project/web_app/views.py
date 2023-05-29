@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
+from django.utils.translation import activate
 from django.views.generic import CreateView
 
 from .forms import LoginUserForm, RegisterUserForm
@@ -24,6 +25,7 @@ def overview(request, order_token: str = 'order_by_date'):
                }
     return render(request, template_name='web_app/overview.html', context=context)
 
+
 def archive(request, order_token: str = 'order_by_date'):
     events_unsorted = EventModel.objects.filter(end_date__lt=timezone.now())
     order_key = get_order_key_by_token(order_token)
@@ -31,6 +33,7 @@ def archive(request, order_token: str = 'order_by_date'):
     context = {'events': events,
                }
     return render(request, template_name='web_app/archive.html', context=context)
+
 
 def associations(request):
     regional_associations = RegionalAssociationModel.objects.all()
@@ -66,3 +69,11 @@ class LoginUser(LoginView):
 def logout_user(request):
     logout(request)
     return redirect(reverse('login'))
+
+
+def change_language(request, lang_code):
+    activate(lang_code)
+    previous_url = request.META.get('HTTP_REFERER') or reverse('index')
+    response = redirect(previous_url)
+    response.set_cookie('lang_code', value=lang_code)
+    return response

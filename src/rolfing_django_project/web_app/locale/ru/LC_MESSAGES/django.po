@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-29 18:07+0300\n"
+"POT-Creation-Date: 2023-05-29 19:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,62 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\forms.py:8 .\forms.py:9 .\forms.py:21 .\forms.py:22
+msgctxt "form_content"
+msgid "Login"
+msgstr "Логин"
+
+#: .\forms.py:13 .\forms.py:14 .\forms.py:31 .\forms.py:32
+msgid "Password"
+msgstr "Пароль"
+
+#: .\forms.py:26 .\forms.py:27
+msgid "Email"
+msgstr "Почта"
+
+#: .\forms.py:36 .\forms.py:38
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: .\models.py:18 .\templates\web_app\archive.html:39
+#: .\templates\web_app\overview.html:39
+msgid "Teacher"
+msgstr "Преподаватель"
+
+#: .\models.py:19
+#, fuzzy
+#| msgid "Teacher"
+msgid "Teachers"
+msgstr "Преподаватель"
+
+#: .\models.py:30
+msgid "Topic"
+msgstr "Тема"
+
+#: .\models.py:31
+msgid "Topics"
+msgstr "Темы"
+
+#: .\models.py:59 .\templates\web_app\archive.html:38
+#: .\templates\web_app\overview.html:38
+msgid "Event"
+msgstr "Событие"
+
+#: .\models.py:60
+#, fuzzy
+#| msgid "Event"
+msgid "Events"
+msgstr "Событие"
+
+#: .\models.py:85
+msgid "Regional Association"
+msgstr "Партнеры"
+
+#: .\models.py:86 .\templates\web_app\navbar.html:22
+#: .\templates\web_app\regional_associations.html:115
+msgid "Regional Associations"
+msgstr "Партнеры"
 
 #: .\templates\web_app\archive.html:23
 msgid "Event archive"
@@ -31,14 +87,6 @@ msgstr "Последнии"
 #: .\templates\web_app\archive.html:37 .\templates\web_app\overview.html:37
 msgid "City"
 msgstr "Город"
-
-#: .\templates\web_app\archive.html:38 .\templates\web_app\overview.html:38
-msgid "Event"
-msgstr "Событие"
-
-#: .\templates\web_app\archive.html:39 .\templates\web_app\overview.html:39
-msgid "Teacher"
-msgstr "Преподаватель"
 
 #: .\templates\web_app\archive.html:40 .\templates\web_app\overview.html:40
 msgid "Dates"
@@ -80,6 +128,7 @@ msgstr "Почта"
 
 #: .\templates\web_app\login.html:13 .\templates\web_app\login.html:28
 #: .\templates\web_app\navbar.html:34
+msgctxt "page"
 msgid "Login"
 msgstr "Войти"
 
@@ -98,11 +147,6 @@ msgstr "Расписание"
 #: .\templates\web_app\navbar.html:19
 msgid "Blog"
 msgstr "Блог"
-
-#: .\templates\web_app\navbar.html:22
-#: .\templates\web_app\regional_associations.html:115
-msgid "Regional Associations"
-msgstr "Партнеры"
 
 #: .\templates\web_app\navbar.html:25
 msgid "Contacts"

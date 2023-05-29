@@ -10,7 +10,7 @@
 
 {% block content %}
 <div class="container px-4 py-5">
-<h2 class="pb-2 border-bottom">{% translate 'Login' %}</h2>
+<h2 class="pb-2 border-bottom">{% translate 'Login' context 'page' %}</h2>
 <div class="col-md-7 col-lg-8">
 <form class="needs-validation" method="post">
     {% csrf_token %}
@@ -25,7 +25,7 @@
                 </div>
             </div>
             {% endfor %}
-            <button class="btn-login btn w-100 btn-outline-primary btn-md my-3 " type="submit">{% translate 'Login' %}</button>
+            <button class="btn-login btn w-100 btn-outline-primary btn-md my-3 " type="submit">{% translate 'Login' context 'page' %}</button>
             {% for error in form.non_field_errors %}
             <div class="alert alert-warning" role="alert">{{error}}</div>
             {% endfor %}

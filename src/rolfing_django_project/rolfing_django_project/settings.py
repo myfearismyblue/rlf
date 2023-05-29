@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [os.getenv('DJANGO_ALLOWED_HOST')]
 # Application definition
 
 INSTALLED_APPS = [
+    'web_app.apps.WebAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cities_light',
-    'web_app.apps.WebAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'web_app.libs.middleware.locale.SwitchLanguageMiddleware',
 ]
 
 ROOT_URLCONF = 'rolfing_django_project.urls'
@@ -117,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 LANGUAGES = [
     ('ru', 'Russian'),
