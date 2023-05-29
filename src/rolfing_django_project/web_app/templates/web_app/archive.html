@@ -1,6 +1,7 @@
 {% extends "web_app/base.html" %}
 {% load static  %}
 {% load date_period %}
+{% load i18n %}
 
 {% block navbar %}
     {% with overview_is_active="active" %}
@@ -19,10 +20,10 @@
             <div class="col">
             </div>
             <div class="col">
-                 <h2>Event archive</h2>
+                 <h2>{% translate 'Event archive' %}</h2>
             </div>
             <div class="col text-end">
-              <a href="{% url 'overview' %}">Latest</a>
+              <a href="{% url 'overview' %}">{% translate 'Latest' %}</a>
             </div>
         </div>
     </div>
@@ -33,10 +34,10 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col"><a href="{% url 'archive' %}/order_by_city" title="Order by city">City</a></th>
-                    <th scope="col">Event</th>
-                    <th scope="col">Teacher</th>
-                    <th scope="col"><a href="{% url 'archive' %}/order_by_date" title="Order by date">Dates</a></th>
+                    <th scope="col"><a href="{% url 'archive' %}/order_by_city" title="Order by city">{% translate 'City' %}</a></th>
+                    <th scope="col">{% translate 'Event' %}</th>
+                    <th scope="col">{% translate 'Teacher' %}</th>
+                    <th scope="col"><a href="{% url 'archive' %}/order_by_date" title="Order by date">{% translate 'Dates' %}</a></th>
                 </tr>
                 </thead>
                 <tbody>

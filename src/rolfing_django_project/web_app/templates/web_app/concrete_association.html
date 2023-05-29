@@ -1,5 +1,6 @@
 {% extends "web_app/base.html" %}
 {% load static  %}
+{% load i18n %}
 
 {% block navbar %}
     {% with associations_is_active="active" %}
@@ -24,8 +25,8 @@
                 <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" style="">
                   <div class="d-flex gap-2 w-100 justify-content-between">
                     <div class='col-3'>
-                      <p class="mb-0 opacity-75"> <b>Contact person:</b> {{ association.person }}</p>
-                      <p class="mb-0 opacity-75"> <b>Telephone:</b> {{ association.telephone }}</p>
+                      <p class="mb-0 opacity-75"> <b>{% translate 'Contact person' %}:</b> {{ association.person }}</p>
+                      <p class="mb-0 opacity-75"> <b>{% translate 'Telephone' %}:</b> {{ association.telephone }}</p>
                       <p class="mb-0 opacity-75">{{ association.web_site }}</p>
                       <p class="mb-0 opacity-75">{{ association.e_mail }}</p>
                     </div>

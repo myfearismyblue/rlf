@@ -16,8 +16,8 @@ class TopicModelAdmin(admin.ModelAdmin):
 
 @admin.register(Topic_Module)
 class Topic_ModuleAdmin(admin.ModelAdmin):
-     ordering = ['topic', 'module', ]
-     list_display = ['id', '__str__', ]
+    ordering = ['topic', 'module', ]
+    list_display = ['id', '__str__', ]
 
 
 @admin.register(EventModel)
