@@ -25,10 +25,10 @@
                 <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" style="">
                   <div class="d-flex gap-2 w-100 justify-content-between">
                     <div class='col-3'>
-                      <p class="mb-0 opacity-75"> <b>{% translate 'Contact person' %}:</b> {{ association.person }}</p>
-                      <p class="mb-0 opacity-75"> <b>{% translate 'Telephone' %}:</b> {{ association.telephone }}</p>
-                      <p class="mb-0 opacity-75">{{ association.web_site }}</p>
-                      <p class="mb-0 opacity-75">{{ association.e_mail }}</p>
+                      {% if association.person != None %}<p class="mb-0 opacity-75"> <b>{% translate 'Contact person' %}:</b> {{ association.person }}</p> {% endif %}
+                      {% if association.telephone != None %}<p class="mb-0 opacity-75"> <b>{% translate 'Telephone' %}:</b> {{ association.telephone }}</p>{% endif %}
+                      <p class="mb-0 opacity-75"><a href="//{{ association.web_site|default:''}}">{{ association.web_site|default:''}}</a></p>
+                      <p class="mb-0 opacity-75">{{ association.e_mail|default:""}}</p>
                     </div>
                     <div id="assoc_location" class="map" geolocation_query="{{ association.address }}"></div>
 

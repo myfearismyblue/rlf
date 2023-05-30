@@ -1,3 +1,5 @@
+import locale
+
 from django import template
 
 from web_app.models import EventModel
@@ -8,6 +10,7 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def date_period(context, event: EventModel):
     """ Glues dates to period like:  24 Nov 2023 - 10 Dec 2023 -> 24 Nov - 10 Dec 2023"""
+    locale.setlocale(locale.LC_ALL, context.request.COOKIES.get('lang_code', ''))
     format = '%d %b %Y'
     start_date:str = event.start_date.strftime(format)
     end_date:str = event.end_date.strftime(format)

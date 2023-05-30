@@ -1,6 +1,3 @@
-from typing import Optional
-
-from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -68,13 +65,13 @@ class RegionalAssociationModel(models.Model):
     name = models.CharField(max_length=128, blank=False, null=False, unique=True)
     slug = models.SlugField(max_length=128, blank=True, null=True, unique=True, default=None)
     address = models.CharField(max_length=512, blank=False, null=False)
-    person = models.CharField(max_length=256, blank=False, null=False)
+    person = models.CharField(max_length=256, blank=True, null=True)
     telephone = models.CharField(max_length=16, blank=True, null=False, default='')
     web_site = models.CharField(max_length=128, blank=True, null=False, default='')
-    e_mail = models.EmailField()
+    e_mail = models.EmailField(blank=True,null=True)
 
     def get_absolute_url(self):
-        return ''.join((reverse('associations'), '/', str(self.slug)))
+        return ''.join((reverse('associations'), '/id', str(self.id)))
 
     def save(self, *args, **kwargs):
         if not self.slug:

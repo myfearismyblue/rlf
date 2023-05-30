@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [os.getenv('DJANGO_ALLOWED_HOST')]
 
 INSTALLED_APPS = [
     'web_app.apps.WebAppConfig',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

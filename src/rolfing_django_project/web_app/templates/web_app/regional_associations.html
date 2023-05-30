@@ -129,14 +129,14 @@
                       <div class="d-flex gap-2 w-100 justify-content-between">
                         <div>
                           <a href="{{ association.get_absolute_url }}" class="association_title mb-0 opacity-75">
-                              {{ association.address }}
+                              {{ association.address|default:"" }}
                               <img src="{% static 'img/location-pin-svgrepo-com.svg' %}" width="24">
                           </a>
 
-                          <p class="mb-0 opacity-75"> <b>{% translate 'Contact person' %}:</b> {{ association.person }}</p>
-                          <p class="mb-0 opacity-75"> <b>{% translate 'Telephone' %}:</b> {{ association.telephone }}</p>
-                          <p class="mb-0 opacity-75">{{ association.web_site }}</p>
-                          <p class="mb-0 opacity-75">{{ association.e_mail }}</p>
+                          {% if association.person != None %} <p class="mb-0 opacity-75"><b>{% translate 'Contact person' %}:</b> {{ association.person }} </p> {% endif %}
+                          {% if association.telephone != None %}<p class="mb-0 opacity-75"> <b>{% translate 'Telephone' %}:</b> {{ association.telephone }}</p>{% endif %}
+                          <p class="mb-0 opacity-75"><a href="//{{ association.web_site|default:''}}">{{ association.web_site|default:''}}</a></p>
+                          <p class="mb-0 opacity-75">{{ association.e_mail|default:"" }}</p>
                         </div>
 
                       </div>

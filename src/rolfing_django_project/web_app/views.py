@@ -43,8 +43,8 @@ def associations(request):
     return render(request, template_name='web_app/regional_associations.html', context=context)
 
 
-def concrete_association(request, association_slug):
-    association = RegionalAssociationModel.objects.filter(slug=association_slug).first()
+def concrete_association(request, association_id):
+    association = RegionalAssociationModel.objects.filter(id=association_id).first()
     context = {
         'association': association,
         'YANDEX_MAP_API_KEY': os.getenv('YANDEX_MAP_API_KEY'),
