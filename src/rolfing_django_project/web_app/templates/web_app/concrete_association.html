@@ -18,7 +18,7 @@
         <!--            <img src="https://github.com/twbs.png" alt="twbs" width="64" height="64" class="rounded-circle flex-shrink-0">-->
                   <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
-                      <h6 class="mb-0">{{ association.name }}, <i>{{ association.address }}</i></h6>
+                      <h6 class="mb-0">{{ association.name }}{% if association.address != '' %}, <i>{{ association.address }}</i> {% endif %}</h6>
                     </div>
                   </div>
                 </div>

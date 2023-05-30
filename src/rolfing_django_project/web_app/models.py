@@ -4,11 +4,11 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 
-
 class TeacherModel(models.Model):
     id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=64, null=False, blank=False)
     second_name = models.CharField(max_length=64, null=False, blank=False)
+
     # photo = models.ImageField()     # FIXME: consider URLField here
 
     class Meta:
@@ -42,7 +42,6 @@ class Topic_Module(models.Model):
         return f'{self.topic} - {self.module}'
 
 
-
 class EventModel(models.Model):
     id = models.IntegerField(primary_key=True)
     start_date = models.DateField()
@@ -68,7 +67,7 @@ class RegionalAssociationModel(models.Model):
     person = models.CharField(max_length=256, blank=True, null=True)
     telephone = models.CharField(max_length=16, blank=True, null=False, default='')
     web_site = models.CharField(max_length=128, blank=True, null=False, default='')
-    e_mail = models.EmailField(blank=True,null=True)
+    e_mail = models.EmailField(blank=True, null=True)
 
     def get_absolute_url(self):
         return ''.join((reverse('associations'), '/id', str(self.id)))
@@ -84,4 +83,3 @@ class RegionalAssociationModel(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
