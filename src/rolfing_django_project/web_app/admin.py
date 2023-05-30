@@ -6,18 +6,20 @@ from .models import TeacherModel, TopicModel, Topic_Module, EventModel, Regional
 @admin.register(TeacherModel)
 class TeacherModelAdmin(admin.ModelAdmin):
     ordering = ['second_name', ]
+    exclude = ['second_name', 'first_name', ]  # to exclude default language form
 
 
 @admin.register(TopicModel)
 class TopicModelAdmin(admin.ModelAdmin):
     ordering = ['name', ]
     list_display = ['id', '__str__', ]
-
+    exclude = ['name',]
 
 @admin.register(Topic_Module)
 class Topic_ModuleAdmin(admin.ModelAdmin):
     ordering = ['topic', 'module', ]
     list_display = ['id', '__str__', ]
+    exclude = ['module', ]
 
 
 @admin.register(EventModel)
@@ -30,4 +32,4 @@ class EventModelAdmin(admin.ModelAdmin):
 class RegionalAssociationModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'person', ]
     ordering = ['name', ]
-    exclude = ['slug', ]
+    exclude = ['slug', 'name', 'address', 'person']

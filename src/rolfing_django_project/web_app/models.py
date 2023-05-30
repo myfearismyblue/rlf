@@ -9,7 +9,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class TeacherModel(models.Model):
-    id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=64, null=False, blank=False)
     second_name = models.CharField(max_length=64, null=False, blank=False)
     # photo = models.ImageField()     # FIXME: consider URLField here
@@ -23,7 +22,6 @@ class TeacherModel(models.Model):
 
 
 class TopicModel(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128, null=False, blank=False)
 
     class Meta:
@@ -35,7 +33,6 @@ class TopicModel(models.Model):
 
 
 class Topic_Module(models.Model):
-    id = models.IntegerField(primary_key=True)
     topic = models.ForeignKey(TopicModel, on_delete=models.CASCADE, related_name='modules')
     module = models.CharField(max_length=64, null=True, blank=True)
 
@@ -47,7 +44,6 @@ class Topic_Module(models.Model):
 
 
 class EventModel(models.Model):
-    id = models.IntegerField(primary_key=True)
     start_date = models.DateField()
     end_date = models.DateField()
     country = models.ForeignKey('cities_light.Country', on_delete=models.SET_NULL, null=True, blank=True)
@@ -64,7 +60,6 @@ class EventModel(models.Model):
 
 
 class RegionalAssociationModel(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128, blank=False, null=False, unique=True)
     slug = models.SlugField(max_length=128, blank=True, null=True, unique=True, default=None)
     address = models.CharField(max_length=512, blank=False, null=False)
