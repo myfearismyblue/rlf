@@ -51,7 +51,7 @@ class EventModel(models.Model):
     end_date = models.DateField()
     country = models.ForeignKey('cities_light.Country', on_delete=models.SET_NULL, null=True, blank=True)
     city = models.ForeignKey('cities_light.City', on_delete=models.SET_NULL, null=True, blank=True)
-    teachers = models.ManyToManyField(TeacherModel, related_name='events', blank=False, null=False)
+    teachers = models.ManyToManyField(TeacherModel, related_name='events', blank=True)
     topic_modules = models.ManyToManyField(Topic_Module)
 
     class Meta:
