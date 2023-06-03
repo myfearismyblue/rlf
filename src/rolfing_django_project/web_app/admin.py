@@ -32,7 +32,7 @@ class EventModelAdmin(admin.ModelAdmin):
 class RegionalAssociationModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'person', ]
     ordering = ['name', ]
-    exclude = ['slug', 'name', 'address', 'person']
+    exclude = ['name', 'address', 'person', ]
 
 
 @admin.register(RolfUser)
