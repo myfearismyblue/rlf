@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-29 19:20+0300\n"
+"POT-Creation-Date: 2023-06-03 15:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,162 +20,228 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\forms.py:8 .\forms.py:9 .\forms.py:21 .\forms.py:22
+#: .\web_app\forms.py:10 .\web_app\forms.py:12 .\web_app\forms.py:25
+#: .\web_app\forms.py:27
 msgctxt "form_content"
 msgid "Login"
 msgstr "Логин"
 
-#: .\forms.py:13 .\forms.py:14 .\forms.py:31 .\forms.py:32
+#: .\web_app\forms.py:16 .\web_app\forms.py:18 .\web_app\forms.py:37
+#: .\web_app\forms.py:39
 msgid "Password"
 msgstr "Пароль"
 
-#: .\forms.py:26 .\forms.py:27
+#: .\web_app\forms.py:31 .\web_app\forms.py:33
 msgid "Email"
 msgstr "Почта"
 
-#: .\forms.py:36 .\forms.py:38
+#: .\web_app\forms.py:43 .\web_app\forms.py:46
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: .\models.py:18 .\templates\web_app\archive.html:39
-#: .\templates\web_app\overview.html:39
+#: .\web_app\forms.py:53 .\web_app\models.py:95
+msgid "username"
+msgstr "Имя"
+
+#: .\web_app\models.py:19 .\web_app\templates\web_app\archive.html:39
+#: .\web_app\templates\web_app\overview.html:40
 msgid "Teacher"
 msgstr "Преподаватель"
 
-#: .\models.py:19
+#: .\web_app\models.py:20
 #, fuzzy
 #| msgid "Teacher"
 msgid "Teachers"
 msgstr "Преподаватель"
 
-#: .\models.py:30
+#: .\web_app\models.py:31
 msgid "Topic"
 msgstr "Тема"
 
-#: .\models.py:31
+#: .\web_app\models.py:32
 msgid "Topics"
 msgstr "Темы"
 
-#: .\models.py:59 .\templates\web_app\archive.html:38
-#: .\templates\web_app\overview.html:38
+#: .\web_app\models.py:59 .\web_app\templates\web_app\archive.html:38
+#: .\web_app\templates\web_app\overview.html:39
 msgid "Event"
 msgstr "Событие"
 
-#: .\models.py:60
+#: .\web_app\models.py:60
 #, fuzzy
 #| msgid "Event"
 msgid "Events"
 msgstr "Событие"
 
-#: .\models.py:85
+#: .\web_app\models.py:85
 msgid "Regional Association"
 msgstr "Партнеры"
 
-#: .\models.py:86 .\templates\web_app\navbar.html:22
-#: .\templates\web_app\regional_associations.html:115
+#: .\web_app\models.py:86 .\web_app\templates\web_app\navbar.html:22
+#: .\web_app\templates\web_app\regional_associations.html:115
 msgid "Regional Associations"
 msgstr "Партнеры"
 
-#: .\templates\web_app\archive.html:23
+#: .\web_app\models.py:98
+msgid ""
+"Required. 150 characters or fewer. Letters, digits, @/./+/-/_  and space "
+"only."
+msgstr ""
+"Требуется заполнить поле. Максимум 150 символов включая @/./+/-/_ и пробел."
+
+#: .\web_app\models.py:101
+msgid "A user with that username already exists."
+msgstr "Пользователь с таким именем уже зарегистрирован."
+
+#: .\web_app\models.py:104
+#, fuzzy
+#| msgid "Address"
+msgid "email address"
+msgstr "Адрес"
+
+#: .\web_app\models.py:108
+msgid "Token created at"
+msgstr "Токен создан"
+
+#: .\web_app\models.py:111
+msgid "active"
+msgstr "активен"
+
+#: .\web_app\models.py:114
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Указывает, рассматривать ли пользователя как активного. Снимите метку вместо "
+"того, чтобы удалять пользователя."
+
+#: .\web_app\templates\web_app\archive.html:23
 msgid "Event archive"
 msgstr "Архив событий"
 
-#: .\templates\web_app\archive.html:26
+#: .\web_app\templates\web_app\archive.html:26
 msgid "Latest"
 msgstr "Последние"
 
-#: .\templates\web_app\archive.html:37 .\templates\web_app\overview.html:37
+#: .\web_app\templates\web_app\archive.html:37
+#: .\web_app\templates\web_app\overview.html:38
 msgid "City"
 msgstr "Город"
 
-#: .\templates\web_app\archive.html:40 .\templates\web_app\overview.html:40
+#: .\web_app\templates\web_app\archive.html:40
+#: .\web_app\templates\web_app\overview.html:41
 msgid "Dates"
 msgstr "Даты"
 
-#: .\templates\web_app\base.html:8
+#: .\web_app\templates\web_app\base.html:8
 msgid "Rolfing in Russia"
 msgstr "Ролфинг в России"
 
-#: .\templates\web_app\concrete_association.html:28
-#: .\templates\web_app\regional_associations.html:136
+#: .\web_app\templates\web_app\concrete_association.html:28
+#: .\web_app\templates\web_app\regional_associations.html:139
 msgid "Contact person"
 msgstr "Контактное лицо"
 
-#: .\templates\web_app\concrete_association.html:29
-#: .\templates\web_app\regional_associations.html:137
+#: .\web_app\templates\web_app\concrete_association.html:29
+#: .\web_app\templates\web_app\regional_associations.html:142
 msgid "Telephone"
 msgstr "Телефон"
 
-#: .\templates\web_app\footer.html:21 .\templates\web_app\footer.html:24
+#: .\web_app\templates\web_app\footer.html:21
+#: .\web_app\templates\web_app\footer.html:24
 msgid "Gulnora Sitdikova"
 msgstr "Гульнора Ситдикова"
 
-#: .\templates\web_app\footer.html:21
+#: .\web_app\templates\web_app\footer.html:21
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: .\templates\web_app\footer.html:25
+#: .\web_app\templates\web_app\footer.html:25
 msgid "Address"
 msgstr "Адрес"
 
-#: .\templates\web_app\footer.html:26
+#: .\web_app\templates\web_app\footer.html:26
 msgid "Tel."
 msgstr "Тел."
 
-#: .\templates\web_app\footer.html:27
+#: .\web_app\templates\web_app\footer.html:27
 msgid "Mail"
 msgstr "Почта"
 
-#: .\templates\web_app\login.html:13 .\templates\web_app\login.html:28
-#: .\templates\web_app\navbar.html:34
+#: .\web_app\templates\web_app\login.html:13
+#: .\web_app\templates\web_app\login.html:28
+#: .\web_app\templates\web_app\navbar.html:34
 msgctxt "page"
 msgid "Login"
 msgstr "Войти"
 
-#: .\templates\web_app\login.html:24 .\templates\web_app\register.html:25
+#: .\web_app\templates\web_app\login.html:24
+#: .\web_app\templates\web_app\register.html:24
 msgid "This field is required"
 msgstr "Это поле необходимо заполнить"
 
-#: .\templates\web_app\navbar.html:13
+#: .\web_app\templates\web_app\navbar.html:13
 msgid "About me"
 msgstr "Обо мне"
 
-#: .\templates\web_app\navbar.html:16
+#: .\web_app\templates\web_app\navbar.html:16
 msgid "Education overview"
 msgstr "Расписание"
 
-#: .\templates\web_app\navbar.html:19
+#: .\web_app\templates\web_app\navbar.html:19
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\web_app\navbar.html:25
+#: .\web_app\templates\web_app\navbar.html:25
 msgid "Contacts"
 msgstr "Контакты"
 
-#: .\templates\web_app\navbar.html:43
+#: .\web_app\templates\web_app\navbar.html:43
 msgid "Logout"
 msgstr "Выйти"
 
-#: .\templates\web_app\navbar.html:45 .\templates\web_app\register.html:29
+#: .\web_app\templates\web_app\navbar.html:45
+#: .\web_app\templates\web_app\register.html:31
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: .\templates\web_app\overview.html:23
+#: .\web_app\templates\web_app\overview.html:24
 msgid "Schedule"
 msgstr "Расписание"
 
-#: .\templates\web_app\overview.html:26
+#: .\web_app\templates\web_app\overview.html:27
 msgid "Archive"
 msgstr "Архив"
 
-#: .\templates\web_app\overview.html:37
+#: .\web_app\templates\web_app\overview.html:38
 msgid "Order by city"
 msgstr "Упорядочить по названию города"
 
-#: .\templates\web_app\overview.html:40
+#: .\web_app\templates\web_app\overview.html:41
 msgid "Order by date"
 msgstr "Упорядочить по дате"
 
-#: .\templates\web_app\register.html:14
+#: .\web_app\templates\web_app\register.html:14
 msgid "Registration"
 msgstr "Регистрация"
+
+#: .\web_app\validators.py:8
+msgid ""
+"Enter a valid username. This value may contain only letters, numbers, @/./"
+"+/-/_ characters and space."
+msgstr ""
+"Введите корректное имя пользователя. Допустимы только буквы, цифры, знаки "
+"@/./+/-/_ и пробел."
+
+#: .\web_app\views.py:99
+#, fuzzy
+#| msgid "Password confirmation"
+msgid "Please confirm your registration"
+msgstr "Подтверждение пароля"
+
+#: .\web_app\views.py:100
+#, python-brace-format
+msgid "To proceed registration, please follow this link: {confirmation_link}"
+msgstr ""
+"Для окончания регистрации, пожалуйста, пройдите по ссылке: "
+"{confirmation_link}"
