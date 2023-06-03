@@ -10,7 +10,18 @@
 
 {% block content %}
 <div class="container px-4 py-5" id="custom-cards">
-  <h2 class="pb-2 border-bottom">{{ association.name }}</h2>
+  <h2 class="pb-2 border-bottom">
+      {% if user.is_superuser %}
+      <a href="{{ association.get_su_item_change }}">
+            {{ association.name }}
+          <span style="vertical-align: super">
+              <img src="{% static 'img/Edit_icon.svg' %}" width="16px">
+            </span>
+      </a>
+      {% else %}
+          {{ association.name }}
+      {% endif %}
+  </h2>
   <div class="row row-cols-1 row-cols-lg-1 align-items-stretch g-4 py-1">
     <div class="d-flex flex-column flex-md-row p-1 gap-4 py-md-5 align-items-center justify-content-center " >
               <div class="list-group flex-grow-1">

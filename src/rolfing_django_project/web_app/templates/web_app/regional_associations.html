@@ -112,7 +112,18 @@
   </symbol>
 </svg>
     <div class="container px-4 py-5" id="custom-cards">
-      <h2 class="pb-2 border-bottom">{% translate 'Regional Associations' %}</h2>
+      <h2 class="pb-2 border-bottom">
+        {% if user.is_superuser %}
+          <a href="{{ associations.first.get_superuser_url }}">
+            {% translate 'Regional Associations' %}
+            <span style="vertical-align: super">
+              <img src="{% static 'img/Edit_icon.svg' %}" width="16px">
+            </span>
+          </a>
+        {% else %}
+          {% translate 'Regional Associations' %}
+        {% endif %}
+      </h2>
       <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
             {% for association in associations %}
                 <div class="d-flex flex-column flex-md-row p-1 gap-1 py-md-1 align-items-top justify-content-center " >
@@ -121,7 +132,9 @@
             <!--            <img src="https://github.com/twbs.png" alt="twbs" width="64" height="64" class="rounded-circle flex-shrink-0">-->
                       <div class="d-flex gap-2 w-100 justify-content-between">
                         <div>
-                          <h6 class="association_title mb-0">{{ association.name }}</h6>
+                          <h6 class="association_title mb-0">
+                            {{ association.name }}
+                          </h6>
                         </div>
                       </div>
                     </a>
