@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import TeacherModel, TopicModel, Topic_Module, EventModel, RegionalAssociationModel
+from .models import TeacherModel, TopicModel, Topic_Module, EventModel, RegionalAssociationModel, RolfUser
 
 
 @admin.register(TeacherModel)
@@ -33,3 +33,8 @@ class RegionalAssociationModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'person', ]
     ordering = ['name', ]
     exclude = ['slug', 'name', 'address', 'person']
+
+
+@admin.register(RolfUser)
+class RolfUserAdmin(admin.ModelAdmin):
+    list_display = ['__str__', ]
