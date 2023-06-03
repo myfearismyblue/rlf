@@ -40,6 +40,6 @@ def extract_locale_name(context, city: City, lang_code: Optional[str] = None) ->
     alternative_names: str = str(city.alternate_names)
     alternative_names_as_list = alternative_names.split(CITIES_LIGHT_SPLITTER)
     for name in alternative_names_as_list[::-1]:  # reverse because somehow the best matches are the latest
-        if _is_in_local_alpha(name[0]):
+        if len(name) and _is_in_local_alpha(name[0]):
             return name
     return city.name_ascii
