@@ -20,7 +20,20 @@
             <div class="col">
             </div>
             <div class="col">
-                 <h2>{% translate 'Event archive' %}</h2>
+                <h2>
+                    {% if user.is_superuser %}
+                    <a href="{{ events.first.get_superuser_url }}">
+                        <div>
+                            {% translate 'Event archive' %}
+                            <span style="vertical-align: super">
+                                <img src="{% static 'img/Edit_icon.svg' %}" width="16px">
+                            </span>
+                        </div>
+                    </a>
+                    {% else %}
+                        {% translate 'Event archive' %}
+                    {% endif %}
+                </h2>
             </div>
             <div class="col text-end">
               <a href="{% url 'overview' %}">{% translate 'Latest' %}</a>

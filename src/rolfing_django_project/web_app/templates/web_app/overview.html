@@ -21,7 +21,20 @@
             <div class="col">
             </div>
             <div class="col">
-                 <h2>{% translate 'Schedule' %}</h2>
+                 <h2>
+                     {% if user.is_superuser %}
+                        <a href="{{ events.first.get_superuser_url }}">
+                            <div>
+                            {% translate 'Schedule' %}
+                            <span style="vertical-align: super">
+                                <img src="{% static 'img/Edit_icon.svg' %}" width="16px">
+                            </span>
+                            </div>
+                        </a>
+                     {% else %}
+                        {% translate 'Schedule' %}
+                     {% endif %}
+                 </h2>
             </div>
             <div class="col text-end">
                 <a href="{% url 'archive' %}"> {% translate 'Archive' %} </a>
@@ -33,23 +46,44 @@
         <div class="col-md-12">
             <table class="table table-hover">
                 <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><a href="{% url 'overview' %}/order_by_city" title="{% translate 'Order by city' %}">{% translate 'City' %}</a></th>
-                    <th scope="col">{% translate 'Event' %}</th>
-                    <th scope="col">{% translate 'Teacher' %}</th>
-                    <th scope="col"><a href="{% url 'overview' %}/order_by_date" title="{% translate 'Order by date' %}">{% translate 'Dates' %}</a></th>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"><a href="{% url 'overview' %}/order_by_city" title="{% translate 'Order by city' %}">{% translate 'City' %}</a></th>
+                        <th scope="col">{% translate 'Event' %}</th>
+                        <th scope="col">{% translate 'Teacher' %}</th>
+                        <th scope="col"><a href="{% url 'overview' %}/order_by_date" title="{% translate 'Order by date' %}">{% translate 'Dates' %}</a></th>
+
+                    </tr>
                 </thead>
                 <tbody>
                 {% for event in events %}
-                <tr>
-                    <th scope="row" >{{ forloop.counter }} </th>
-                    <td colspan="1">{% extract_locale_name event.city %}</td>
-                    <td>{% for topic in event.topic_modules.all %} {{ topic }} {% endfor %}</td>
-                    <td>{% for teacher in event.teachers.all %} {{ teacher }} <br> {% endfor %}</td>
-                    <td>{% date_period event %}</td>
-                </tr>
+                    {% if user.is_superuser %}
+                        <tr>
+                            <th scope="row" >{{ forloop.counter }} </th>
+                            <td colspan="1">{% extract_locale_name event.city %}</td>
+                            <td>
+                                {% for topic in event.topic_modules.all %}
+                                    <a href="{{ event.get_su_item_change }}">
+                                        {{ topic }}
+                                        <span style="vertical-align: super">
+                                            <img src="{% static 'img/Edit_icon.svg' %}" width="12px">
+                                        </span>
+                                    </a>
+                                {% endfor %}
+                            </td>
+                            <td>{% for teacher in event.teachers.all %} {{ teacher }} <br> {% endfor %}</td>
+                            <td>{% date_period event %}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th scope="row" >{{ forloop.counter }} </th>
+                            <td colspan="1">{% extract_locale_name event.city %}</td>
+                            <td>{% for topic in event.topic_modules.all %} {{ topic }}  {% endfor %}</td>
+                            <td>{% for teacher in event.teachers.all %} {{ teacher }} <br> {% endfor %}</td>
+                            <td>{% date_period event %}</td>
+                        </tr>
+                    {% endif %}
+
                 {% endfor %}
 
                 </tbody>

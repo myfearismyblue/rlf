@@ -1,7 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
-from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 from .validators import UnicodeSpaceUsernameValidator
@@ -54,6 +53,14 @@ class EventModel(models.Model):
     teachers = models.ManyToManyField(TeacherModel, related_name='events', blank=True)
     topic_modules = models.ManyToManyField(Topic_Module)
 
+    def get_superuser_url(self):
+        url = f'/admin{self._meta.app_label}/{self._meta.model_name}/'
+        return url
+
+    def get_su_item_change(self):
+        url = f'/admin{self._meta.app_label}/{self._meta.model_name}/{self.id}/change/'
+        return url
+
     class Meta:
         verbose_name = _('Event')
         verbose_name_plural = _('Events')
@@ -73,6 +80,14 @@ class RegionalAssociationModel(models.Model):
 
     def get_absolute_url(self):
         return ''.join((reverse('associations'), '/id', str(self.id)))
+
+    def get_superuser_url(self):
+        url = f'/admin{self._meta.app_label}/{self._meta.model_name}/'
+        return url
+
+    def get_su_item_change(self):
+        url = f'/admin{self._meta.app_label}/{self._meta.model_name}/{self.id}/change/'
+        return url
 
     class Meta:
         verbose_name = _('Regional Association')
