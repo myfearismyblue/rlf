@@ -38,6 +38,10 @@ class Topic_Module(models.Model):
     topic = models.ForeignKey(TopicModel, on_delete=models.CASCADE, related_name='modules')
     module = models.CharField(max_length=64, null=True, blank=True)
 
+    class Meta:
+        verbose_name = _('Module')
+        verbose_name_plural = _('Modules')
+
     def __str__(self):
         if not self.module:
             return f'{self.topic}'
