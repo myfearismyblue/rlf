@@ -20,8 +20,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="2.2402953"
-     inkscape:cx="222.29212"
-     inkscape:cy="93.514458"
+     inkscape:cx="249.52068"
+     inkscape:cy="93.960827"
      inkscape:window-width="1920"
      inkscape:window-height="1028"
      inkscape:window-x="1432"
@@ -51,6 +51,12 @@
        id="rect340" />
     <style
        id="style165">.cls-1{isolation:isolate;}.cls-2{fill:#003648;}.cls-3{mix-blend-mode:multiply;}</style>
+    <rect
+       x="130.78633"
+       y="91.505791"
+       width="417.80206"
+       height="65.616348"
+       id="rect1092-1" />
   </defs>
   <g
      class="cls-1"
@@ -203,9 +209,19 @@
          transform="matrix(1.1867342,0,0,1.1867342,-21.174949,3.106503)"><tspan
            x="130.78711"
            y="105.41074"
-           id="tspan3442"><tspan
+           id="tspan2543"><tspan
              style="font-family:'Browallia New';-inkscape-font-specification:'Browallia New'"
-             id="tspan3440">Certified Advanced Rolfer®, Rolf Movement™ Practitioner, Certified Rolfer® </tspan></tspan></text>
+             id="tspan2541">Certified Advanced Rolfer®, Rolf Movement™ Practitioner, Certified Rolfer® </tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         id="text1090-7"
+         style="font-size:16px;font-family:'Adobe Hebrew';-inkscape-font-specification:'Adobe Hebrew';white-space:pre;shape-inside:url(#rect1092-1);display:inline;fill:#0d7881;fill-opacity:1"
+         transform="matrix(1.1867342,0,0,1.1867342,-20.937114,25.37815)"><tspan
+           x="130.78711"
+           y="105.41074"
+           id="tspan2547"><tspan
+             style="font-family:'Browallia New';-inkscape-font-specification:'Browallia New'"
+             id="tspan2545">Body-oriented psychologist</tspan></tspan></text>
     </g>
   </g>
 </svg>

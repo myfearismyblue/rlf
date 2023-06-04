@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-03 15:20+0300\n"
+"POT-Creation-Date: 2023-06-04 22:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,75 +39,80 @@ msgstr "Почта"
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: .\web_app\forms.py:53 .\web_app\models.py:95
-msgid "username"
-msgstr "Имя"
-
-#: .\web_app\models.py:19 .\web_app\templates\web_app\archive.html:39
-#: .\web_app\templates\web_app\overview.html:40
+#: .\web_app\models.py:17 .\web_app\templates\web_app\archive.html:57
+#: .\web_app\templates\web_app\overview.html:57
 msgid "Teacher"
 msgstr "Преподаватель"
 
-#: .\web_app\models.py:20
-#, fuzzy
-#| msgid "Teacher"
+#: .\web_app\models.py:18
 msgid "Teachers"
-msgstr "Преподаватель"
+msgstr "Преподаватели"
 
-#: .\web_app\models.py:31
+#: .\web_app\models.py:29
 msgid "Topic"
 msgstr "Тема"
 
-#: .\web_app\models.py:32
+#: .\web_app\models.py:30
 msgid "Topics"
 msgstr "Темы"
 
-#: .\web_app\models.py:59 .\web_app\templates\web_app\archive.html:38
-#: .\web_app\templates\web_app\overview.html:39
+#: .\web_app\models.py:42
+msgid "Module"
+msgstr "Модуль"
+
+#: .\web_app\models.py:43
+msgid "Modules"
+msgstr "Модули"
+
+#: .\web_app\models.py:69 .\web_app\templates\web_app\archive.html:56
+#: .\web_app\templates\web_app\overview.html:56
 msgid "Event"
 msgstr "Событие"
 
-#: .\web_app\models.py:60
-#, fuzzy
-#| msgid "Event"
+#: .\web_app\models.py:70
 msgid "Events"
-msgstr "Событие"
+msgstr "События"
 
-#: .\web_app\models.py:85
+#: .\web_app\models.py:97
 msgid "Regional Association"
 msgstr "Партнеры"
 
-#: .\web_app\models.py:86 .\web_app\templates\web_app\navbar.html:22
-#: .\web_app\templates\web_app\regional_associations.html:115
+#: .\web_app\models.py:98
+#: .\web_app\templates\web_app\regional_associations.html:118
+#: .\web_app\templates\web_app\regional_associations.html:124
 msgid "Regional Associations"
 msgstr "Партнеры"
 
-#: .\web_app\models.py:98
+#: .\web_app\models.py:107
+msgid "username"
+msgstr "Имя"
+
+#: .\web_app\models.py:110
 msgid ""
 "Required. 150 characters or fewer. Letters, digits, @/./+/-/_  and space "
 "only."
 msgstr ""
 "Требуется заполнить поле. Максимум 150 символов включая @/./+/-/_ и пробел."
 
-#: .\web_app\models.py:101
+#: .\web_app\models.py:113
 msgid "A user with that username already exists."
 msgstr "Пользователь с таким именем уже зарегистрирован."
 
-#: .\web_app\models.py:104
+#: .\web_app\models.py:116
 #, fuzzy
 #| msgid "Address"
 msgid "email address"
 msgstr "Адрес"
 
-#: .\web_app\models.py:108
+#: .\web_app\models.py:120
 msgid "Token created at"
 msgstr "Токен создан"
 
-#: .\web_app\models.py:111
+#: .\web_app\models.py:123
 msgid "active"
 msgstr "активен"
 
-#: .\web_app\models.py:114
+#: .\web_app\models.py:126
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
@@ -115,21 +120,22 @@ msgstr ""
 "Указывает, рассматривать ли пользователя как активного. Снимите метку вместо "
 "того, чтобы удалять пользователя."
 
-#: .\web_app\templates\web_app\archive.html:23
+#: .\web_app\templates\web_app\archive.html:32
+#: .\web_app\templates\web_app\archive.html:39
 msgid "Event archive"
 msgstr "Архив событий"
 
-#: .\web_app\templates\web_app\archive.html:26
+#: .\web_app\templates\web_app\archive.html:44
 msgid "Latest"
 msgstr "Последние"
 
-#: .\web_app\templates\web_app\archive.html:37
-#: .\web_app\templates\web_app\overview.html:38
+#: .\web_app\templates\web_app\archive.html:55
+#: .\web_app\templates\web_app\overview.html:55
 msgid "City"
 msgstr "Город"
 
-#: .\web_app\templates\web_app\archive.html:40
-#: .\web_app\templates\web_app\overview.html:41
+#: .\web_app\templates\web_app\archive.html:58
+#: .\web_app\templates\web_app\overview.html:58
 msgid "Dates"
 msgstr "Даты"
 
@@ -137,13 +143,13 @@ msgstr "Даты"
 msgid "Rolfing in Russia"
 msgstr "Ролфинг в России"
 
-#: .\web_app\templates\web_app\concrete_association.html:28
-#: .\web_app\templates\web_app\regional_associations.html:139
+#: .\web_app\templates\web_app\concrete_association.html:39
+#: .\web_app\templates\web_app\regional_associations.html:152
 msgid "Contact person"
 msgstr "Контактное лицо"
 
-#: .\web_app\templates\web_app\concrete_association.html:29
-#: .\web_app\templates\web_app\regional_associations.html:142
+#: .\web_app\templates\web_app\concrete_association.html:40
+#: .\web_app\templates\web_app\regional_associations.html:155
 msgid "Telephone"
 msgstr "Телефон"
 
@@ -185,12 +191,18 @@ msgid "About me"
 msgstr "Обо мне"
 
 #: .\web_app\templates\web_app\navbar.html:16
-msgid "Education overview"
+#: .\web_app\templates\web_app\overview.html:32
+#: .\web_app\templates\web_app\overview.html:39
+msgid "Schedule"
 msgstr "Расписание"
 
 #: .\web_app\templates\web_app\navbar.html:19
 msgid "Blog"
 msgstr "Блог"
+
+#: .\web_app\templates\web_app\navbar.html:22
+msgid "Partners"
+msgstr "Партнеры"
 
 #: .\web_app\templates\web_app\navbar.html:25
 msgid "Contacts"
@@ -205,19 +217,15 @@ msgstr "Выйти"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: .\web_app\templates\web_app\overview.html:24
-msgid "Schedule"
-msgstr "Расписание"
-
-#: .\web_app\templates\web_app\overview.html:27
+#: .\web_app\templates\web_app\overview.html:44
 msgid "Archive"
 msgstr "Архив"
 
-#: .\web_app\templates\web_app\overview.html:38
+#: .\web_app\templates\web_app\overview.html:55
 msgid "Order by city"
 msgstr "Упорядочить по названию города"
 
-#: .\web_app\templates\web_app\overview.html:41
+#: .\web_app\templates\web_app\overview.html:58
 msgid "Order by date"
 msgstr "Упорядочить по дате"
 
@@ -245,3 +253,6 @@ msgid "To proceed registration, please follow this link: {confirmation_link}"
 msgstr ""
 "Для окончания регистрации, пожалуйста, пройдите по ссылке: "
 "{confirmation_link}"
+
+#~ msgid "Education overview"
+#~ msgstr "Расписание"

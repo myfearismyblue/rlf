@@ -1,4 +1,5 @@
 /venv/
 /.idea/
 /src/rolfing_django_project/rolfing_django_project/.env
+/src/rolfing_django_project/web_app/migrations/__pycache__
 /src/rolfing_django_project/db.sqlite3

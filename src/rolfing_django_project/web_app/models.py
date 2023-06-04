@@ -1,5 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -37,6 +39,10 @@ class Topic_Module(models.Model):
     id = models.IntegerField(primary_key=True)
     topic = models.ForeignKey(TopicModel, on_delete=models.CASCADE, related_name='modules')
     module = models.CharField(max_length=64, null=True, blank=True)
+
+    class Meta:
+        verbose_name = _('Module')
+        verbose_name_plural = _('Modules')
 
     def __str__(self):
         if not self.module:
@@ -123,3 +129,13 @@ class RolfUser(AbstractUser):
             "Unselect this instead of deleting accounts."
         ),
     )
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(RolfUser, on_delete=models.CASCADE, primary_key=True, related_name='profile')
+
+
+@receiver(post_save, sender=RolfUser)
+def create_favorites(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
