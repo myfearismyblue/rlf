@@ -1,3 +1,5 @@
+from functools import partial
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
@@ -8,8 +10,21 @@ from django.utils.translation import gettext_lazy as _
 from .validators import UnicodeSpaceUsernameValidator
 
 
+
+def _id_autofill(qualname):
+    """
+    An auxiliary func to increment ids by default.
+    For example: id = models.IntegerField(primary_key=True, default=partial(_id_autofill, qualname=__qualname__))
+    """
+    last = globals()[qualname].objects.last()
+    if not last:
+        return 1
+    else:
+        return last.id + 1
+
+
 class TeacherModel(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, default=partial(_id_autofill, qualname=__qualname__))
     first_name = models.CharField(max_length=64, null=False, blank=False)
     second_name = models.CharField(max_length=64, null=False, blank=False)
 
@@ -24,7 +39,7 @@ class TeacherModel(models.Model):
 
 
 class TopicModel(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, default=partial(_id_autofill, qualname=__qualname__))
     name = models.CharField(max_length=128, null=False, blank=False)
 
     class Meta:
@@ -36,7 +51,7 @@ class TopicModel(models.Model):
 
 
 class Topic_Module(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, default=partial(_id_autofill, qualname=__qualname__))
     topic = models.ForeignKey(TopicModel, on_delete=models.CASCADE, related_name='modules')
     module = models.CharField(max_length=64, null=True, blank=True)
 
@@ -50,8 +65,9 @@ class Topic_Module(models.Model):
         return f'{self.topic} - {self.module}'
 
 
+
 class EventModel(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, default=partial(_id_autofill, qualname=__qualname__))
     start_date = models.DateField()
     end_date = models.DateField()
     country = models.ForeignKey('cities_light.Country', on_delete=models.SET_NULL, null=True, blank=True)
@@ -76,7 +92,7 @@ class EventModel(models.Model):
 
 
 class RegionalAssociationModel(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, default=partial(_id_autofill, qualname=__qualname__))
     name = models.CharField(max_length=128, blank=False, null=False, unique=True)
     address = models.CharField(max_length=512, blank=False, null=False)
     person = models.CharField(max_length=256, blank=True, null=True)
