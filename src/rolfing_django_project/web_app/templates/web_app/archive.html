@@ -22,7 +22,7 @@
             <div class="col">
                 <h2>
                     {% if user.is_superuser %}
-                    <a href="{{ events.first.get_superuser_url }}">
+                    <a href="{{ events.first.get_superuser_url }}" class="superuser-edit">
                         <div>
                             {% translate 'Event archive' %}
                             <span style="vertical-align: super">

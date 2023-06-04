@@ -114,7 +114,7 @@
     <div class="container px-4 py-5" id="custom-cards">
       <h2 class="pb-2 border-bottom">
         {% if user.is_superuser %}
-          <a href="{{ associations.first.get_superuser_url }}">
+          <a href="{{ associations.first.get_superuser_url }}" class="superuser-edit">
             {% translate 'Regional Associations' %}
             <span style="vertical-align: super">
               <img src="{% static 'img/Edit_icon.svg' %}" width="16px">
