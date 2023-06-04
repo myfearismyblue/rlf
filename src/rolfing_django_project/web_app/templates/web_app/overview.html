@@ -11,7 +11,11 @@
 {% endblock navbar%}
 
 {% block content %}
-<img src="{% static 'img/rolfing_logo_sitdikova_en.svg' %}">
+{% if request.COOKIES.lang_code == 'ru' or request.COOKIES.lang_code == None %}
+    <img src="{% static 'img/rolfing_logo_sitdikova_ru.svg' %}">
+{% else %}
+    <img src="{% static 'img/rolfing_logo_sitdikova_en.svg' %}">
+{% endif %}
 <div class="container marketing">
     <!-- START THE FEATURETTES -->
 
