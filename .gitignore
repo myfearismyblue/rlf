@@ -2,3 +2,5 @@
 /.idea/
 /src/rolfing_django_project/rolfing_django_project/.env
 /src/rolfing_django_project/db.sqlite3
+
+/src/rolfing_django_project/web_app/migrations/__pycache__
