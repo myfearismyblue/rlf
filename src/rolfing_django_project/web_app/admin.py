@@ -12,13 +12,17 @@ class TeacherModelAdmin(admin.ModelAdmin):
 @admin.register(TopicModel)
 class TopicModelAdmin(admin.ModelAdmin):
     ordering = ['name', ]
-    list_display = ['id', '__str__', ]
+    list_display = ['__str__', ]
+    list_display_links = list_display
+    list_select_related = True
     exclude = ['name',]
 
 @admin.register(Topic_Module)
 class Topic_ModuleAdmin(admin.ModelAdmin):
-    ordering = ['topic', 'module', ]
+    ordering = ['-id', 'topic', 'module', ]
     list_display = ['id', '__str__', ]
+    list_display_links = list_display
+    list_select_related = True
     exclude = ['module', ]
 
 
@@ -26,15 +30,21 @@ class Topic_ModuleAdmin(admin.ModelAdmin):
 class EventModelAdmin(admin.ModelAdmin):
     ordering = ['start_date', ]
     list_display = ['id', '__str__', ]
+    list_display_links = list_display
+    list_select_related = True
 
 
 @admin.register(RegionalAssociationModel)
 class RegionalAssociationModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'person', ]
-    ordering = ['name', ]
+    list_display_links = list_display
+    list_select_related = True
+    ordering = ['-id', ]
     exclude = ['name', 'address', 'person', ]
 
 
 @admin.register(RolfUser)
 class RolfUserAdmin(admin.ModelAdmin):
     list_display = ['__str__', ]
+    list_display_links = list_display
+    list_select_related = True
