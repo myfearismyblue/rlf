@@ -30,12 +30,18 @@ a:hover {
     color: var(--color-primary-orange);
 }
 
+a.superuser-edit {
+    color: #000;
+    text-decoration: none;
+}
+
+
 .association_title{
     text-decoration: none;
 }
 
 
-.association_title:hover, a:hover {
+.association_title:hover {
 	color: var(--color-primary-orange);
 	text-decoration: none;
 }

@@ -23,7 +23,7 @@
             <div class="col">
                  <h2>
                      {% if user.is_superuser %}
-                        <a href="{{ events.first.get_superuser_url }}">
+                        <a href="{{ events.first.get_superuser_url }}" class="superuser-edit">
                             <div>
                             {% translate 'Schedule' %}
                             <span style="vertical-align: super">
@@ -63,7 +63,7 @@
                             <td colspan="1">{% extract_locale_name event.city %}</td>
                             <td>
                                 {% for topic in event.topic_modules.all %}
-                                    <a href="{{ event.get_su_item_change }}">
+                                    <a href="{{ event.get_su_item_change }}" class="superuser-edit">
                                         {{ topic }}
                                         <span style="vertical-align: super">
                                             <img src="{% static 'img/Edit_icon.svg' %}" width="12px">

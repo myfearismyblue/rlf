@@ -12,7 +12,7 @@
 <div class="container px-4 py-5" id="custom-cards">
   <h2 class="pb-2 border-bottom">
       {% if user.is_superuser %}
-      <a href="{{ association.get_su_item_change }}">
+      <a href="{{ association.get_su_item_change }}" class="superuser-edit">
             {{ association.name }}
           <span style="vertical-align: super">
               <img src="{% static 'img/Edit_icon.svg' %}" width="16px">
