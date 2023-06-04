@@ -123,3 +123,7 @@ class RolfUser(AbstractUser):
             "Unselect this instead of deleting accounts."
         ),
     )
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(RolfUser, on_delete=models.CASCADE, primary_key=True, related_name='profile')
