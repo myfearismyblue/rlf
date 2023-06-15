@@ -4,6 +4,7 @@ from typing import Dict, Sequence
 
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
+from django.core.cache import cache
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
@@ -66,9 +67,6 @@ class RegisterUser(CreateView):
     def _generate_register_token(self):
         """Return uuid4 as a hex string len = 32 with prefix set in settings.py """
         self.token = ''.join((settings.ROLF_USER_CONFIRM_PREFIX,  uuid.uuid4().hex, ))
-        assert len(self.token) < RolfUser._meta.get_field('confirmation_key').max_length, \
-            f'User token has to long length: {len(self.token)}, ' \
-            f'but less than {RolfUser.confirmation_key.max_length} is required.'
         return self.token
 
     def _generate_confirm_link(self, user: RolfUser):
@@ -88,12 +86,13 @@ class RegisterUser(CreateView):
 
         user, is_new = RolfUser.objects.get_or_create(**_without_keys(form.cleaned_data, ('password1', 'password2',)))
         if not user.is_active or is_new:
-            self._generate_register_token()
             if is_new:
                 user.set_password(form.cleaned_data['password1'])
-            user.confirmation_key = self.token
-            user.confirmation_key_time = timezone.now()
             user.save()
+            redis_confirmation_key_name = user.get_redis_confirmation_key_name()
+            if not cache.get(redis_confirmation_key_name):
+                self._generate_register_token()
+                cache.set(redis_confirmation_key_name, self.token, settings.ROLF_CONFIRM_DELAY_IN_SEC)
             confirmation_link = self._generate_confirm_link(user)
             send_mail(
                 subject=_('Please confirm your registration'),
@@ -106,8 +105,8 @@ class RegisterUser(CreateView):
 
 def register_confirmation(request, token, user_id):
     user = get_object_or_404(RolfUser, id=user_id)
-    too_late = (timezone.now() - user.confirmation_key_time).seconds > settings.ROLF_CONFIRM_DELAY_IN_SEC
-    if not too_late and user.confirmation_key == token:
+    redis_confirmation_key_name = user.get_redis_confirmation_key_name()
+    if cache.get(redis_confirmation_key_name) == token:
         user.is_active = True
         user.save(update_fields=['is_active', ])
     return HttpResponseRedirect(reverse_lazy('login'))

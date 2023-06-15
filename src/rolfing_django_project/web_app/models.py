@@ -146,6 +146,9 @@ class RolfUser(AbstractUser):
         ),
     )
 
+    def get_redis_confirmation_key_name(self):
+        return ''.join((str(self.id), '_confirmation_key', ))
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(RolfUser, on_delete=models.CASCADE, primary_key=True, related_name='profile')

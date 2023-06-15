@@ -163,3 +163,11 @@ EMAIL_HOST = os.getenv('ROLF_ADMIN_EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('ROLF_ADMIN_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('ROLF_ADMIN_EMAIL_PASSWORD')
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": f"redis://{os.getenv('REDIS_USERNAME')}:{os.getenv('REDIS_PASSWORD')}@{os.getenv('REDIS_HOST')}:{os.getenv('REDIS_PORT')}",
+        # default username: default, password - see at redis.conf `requirepass` line
+    }
+}
